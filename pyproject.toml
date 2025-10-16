@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61", "setuptools-scm[simple]>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "depthcrafter"
+description = "[CVPR 2025 Highlight] DepthCrafter: Generating Consistent Long Depth Sequences for Open-world Videos"
+dynamic = ["version"]
+dependencies = [
+    "decord",
+    "diffusers",
+    "numpy",
+    "matplotlib",
+    "mediapy",
+    "torch"
+]
+
+[tool.setuptools.packages.find]
+exclude = [
+    "benchmark",
+    "examples",
+    "tools",
+    "visualization"
+]
+
+[project.urls]
+Repository = "https://github.com/samaust/DepthCrafter"

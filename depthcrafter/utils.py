@@ -1,11 +1,13 @@
-from typing import Union, List
-import tempfile
-import numpy as np
 import PIL.Image
+import tempfile
+from typing import Union, List
+
+from decord import VideoReader, cpu
+import numpy as np
 import matplotlib.cm as cm
 import mediapy
 import torch
-from decord import VideoReader, cpu
+
 
 dataset_res_dict = {
     "sintel": [448, 1024],

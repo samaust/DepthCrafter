@@ -1,8 +1,5 @@
 from typing import Callable, Dict, List, Optional, Union
 
-import numpy as np
-import torch
-
 from diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion import (
     _resize_with_antialiasing,
     StableVideoDiffusionPipelineOutput,
@@ -11,6 +8,10 @@ from diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion 
 )
 from diffusers.utils import logging
 from diffusers.utils.torch_utils import randn_tensor
+
+import numpy as np
+import torch
+
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 
