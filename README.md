@@ -152,6 +152,7 @@ https://github.com/user-attachments/assets/62141cc8-04d0-458f-9558-fe50bc04cc21
 - Online demo: [DepthCrafter](https://huggingface.co/spaces/tencent/DepthCrafter) 
 - Local demo:
     ```bash
+    pip install ".[demo]"
     gradio app.py
     ``` 
 
@@ -165,11 +166,24 @@ https://github.com/user-attachments/assets/62141cc8-04d0-458f-9558-fe50bc04cc21
 ### 🛠️ Installation
 1. Clone this repo:
 ```bash
-git clone https://github.com/Tencent/DepthCrafter.git
+git clone https://github.com/samaust/DepthCrafter.git
+cd DepthCrafter
 ```
-2. Install dependencies (please refer to [requirements.txt](requirements.txt)):
+2. Install the DepthCrafter library:
 ```bash
-pip install -r requirements.txt
+pip install .
+```
+
+3. Install optional dependencies as needed:
+```bash
+# Command-line inference with run.py
+pip install ".[cli]"
+
+# Local Gradio demo with app.py
+pip install ".[demo]"
+
+# EXR output with run.py
+pip install ".[cli,exr]"
 ```
 
 

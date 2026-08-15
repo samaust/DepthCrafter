@@ -18,6 +18,11 @@ dependencies = [
     "transformers"
 ]
 
+[project.optional-dependencies]
+cli = ["fire"]
+demo = ["gradio", "spaces"]
+exr = ["OpenEXR"]
+
 [tool.setuptools.packages.find]
 include = ["depthcrafter*"]
 
