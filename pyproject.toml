@@ -7,21 +7,25 @@ name = "depthcrafter"
 description = "[CVPR 2025 Highlight] DepthCrafter: Generating Consistent Long Depth Sequences for Open-world Videos"
 dynamic = ["version"]
 dependencies = [
+    "accelerate",
     "decord",
     "diffusers",
     "numpy",
     "matplotlib",
     "mediapy",
-    "torch"
+    "Pillow",
+    "torch",
+    "transformers"
 ]
 
 [tool.setuptools.packages.find]
-exclude = [
-    "benchmark",
-    "examples",
-    "tools",
-    "visualization"
-]
+include = ["depthcrafter*"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
 
 [project.urls]
 Repository = "https://github.com/samaust/DepthCrafter"

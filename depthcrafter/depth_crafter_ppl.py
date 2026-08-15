@@ -1,23 +1,20 @@
 from typing import Callable, Dict, List, Optional, Union
 
+import numpy as np
+import torch
 from diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion import (
-    _resize_with_antialiasing,
-    StableVideoDiffusionPipelineOutput,
     StableVideoDiffusionPipeline,
+    StableVideoDiffusionPipelineOutput,
+    _resize_with_antialiasing,
     retrieve_timesteps,
 )
 from diffusers.utils import logging
 from diffusers.utils.torch_utils import randn_tensor
 
-import numpy as np
-import torch
-
-
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 
 
 class DepthCrafterPipeline(StableVideoDiffusionPipeline):
-
     @torch.inference_mode()
     def encode_video(
         self,
@@ -162,9 +159,7 @@ class DepthCrafterPipeline(StableVideoDiffusionPipeline):
 
         video_embeddings = self.encode_video(
             video, chunk_size=decode_chunk_size
-        ).unsqueeze(
-            0
-        )  # [1, t, 1024]
+        ).unsqueeze(0)  # [1, t, 1024]
         torch.cuda.empty_cache()
         # 4. Encode input image using VAE
         noise = randn_tensor(
@@ -182,9 +177,7 @@ class DepthCrafterPipeline(StableVideoDiffusionPipeline):
         video_latents = self.encode_vae_video(
             video.to(self.vae.dtype),
             chunk_size=decode_chunk_size,
-        ).unsqueeze(
-            0
-        )  # [1, t, c, h, w]
+        ).unsqueeze(0)  # [1, t, c, h, w]
 
         if track_time:
             encode_event.record()

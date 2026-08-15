@@ -1,14 +1,15 @@
-from typing import Union, Tuple
+from typing import Tuple, Union
 
 import torch
 from diffusers import UNetSpatioTemporalConditionModel
-from diffusers.models.unets.unet_spatio_temporal_condition import UNetSpatioTemporalConditionOutput
+from diffusers.models.unets.unet_spatio_temporal_condition import (
+    UNetSpatioTemporalConditionOutput,
+)
 
 
 class DiffusersUNetSpatioTemporalConditionModelDepthCrafter(
     UNetSpatioTemporalConditionModel
 ):
-
     def forward(
         self,
         sample: torch.Tensor,

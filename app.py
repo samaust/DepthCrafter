@@ -1,20 +1,15 @@
 import gc
 import os
 
+import gradio as gr
 import numpy as np
 import spaces
-import gradio as gr
 import torch
 from diffusers.training_utils import set_seed
 
 from depthcrafter.depth_crafter_ppl import DepthCrafterPipeline
 from depthcrafter.unet import DiffusersUNetSpatioTemporalConditionModelDepthCrafter
-
-import uuid
-import random
-from huggingface_hub import hf_hub_download
-
-from depthcrafter.utils import read_video_frames, vis_sequence_depth, save_video
+from depthcrafter.utils import read_video_frames, save_video, vis_sequence_depth
 
 examples = [
     ["examples/example_01.mp4", 5, 1.0, 1024, -1, -1],
